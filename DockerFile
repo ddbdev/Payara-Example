@@ -1,0 +1,5 @@
+FROM payara/micro
+# Copy the war file to the deployment directory
+COPY target/demo-1.0-SNAPSHOT.war $DEPLOY_DIR
+# Expose the port where the application will be running
+EXPOSE 8080
