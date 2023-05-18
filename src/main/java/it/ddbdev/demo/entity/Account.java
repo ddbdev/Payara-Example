@@ -9,9 +9,6 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "accounts")
-@NoArgsConstructor
-@Getter
-@Setter
 @NamedQueries({
         @NamedQuery(name = "Account.findAll",
                 query = "SELECT u FROM Account u"),
@@ -30,6 +27,33 @@ public class Account {
 
     public Account(String username, String password) {
         this.username = username;
+        this.password = password;
+    }
+
+    public Account() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(final String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(final String password) {
         this.password = password;
     }
 

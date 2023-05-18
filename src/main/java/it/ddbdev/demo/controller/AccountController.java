@@ -1,8 +1,10 @@
 package it.ddbdev.demo.controller;
 
+import it.ddbdev.demo.Annotations.Interceptable;
 import it.ddbdev.demo.dto.request.AccountRequest;
 import it.ddbdev.demo.entity.Account;
 import it.ddbdev.demo.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -20,6 +22,7 @@ public class AccountController {
     @POST
     @Path("/create")
     @Consumes(MediaType.APPLICATION_JSON)
+    @Interceptable
     public Response addUser(AccountRequest request){
 
         if (!userService.findByUsername(request.getUsername()))
@@ -36,7 +39,9 @@ public class AccountController {
 
     @GET
     @Path("/all")
+    @Interceptable
     public List<Account> get(){
+        System.out.println("Method get invokeds");
         return userService.findAllAccount();
     }
 
